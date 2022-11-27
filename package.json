@@ -1,0 +1,25 @@
+{
+  "name": "proyecto2",
+  "version": "1.0.0",
+  "description": "Proyecto de Estructura de Datos 2",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crywhat7/proyecto2EDD2.git"
+  },
+  "keywords": [
+    "EDD2"
+  ],
+  "author": "CryWhat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crywhat7/proyecto2EDD2/issues"
+  },
+  "homepage": "https://github.com/crywhat7/proyecto2EDD2#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
