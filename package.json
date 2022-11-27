@@ -20,6 +20,14 @@
   },
   "homepage": "https://github.com/crywhat7/proyecto2EDD2#readme",
   "dependencies": {
-    "nodemon": "^2.0.20"
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7"
   }
 }

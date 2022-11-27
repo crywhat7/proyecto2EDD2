@@ -1,0 +1,58 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap"
+      rel="stylesheet" />
+    <title>Proyecto #2 - EDD2</title>
+  </head>
+  <body>
+    <span class="btn-change-mode">
+      <a href="../CriptoSaltAndPepper/index.html">
+        <i class="fa-solid fa-pepper-hot"></i>
+      </a>
+    </span>
+    <div class="encriptamiento">
+      <div class="cuadroCripto">
+        <span class="header">Encriptar un texto mediante el método AES</span>
+        <span class="contenido">
+          <input
+            type="text"
+            id="texto-encriptar"
+            placeholder="Texto a encriptar" />
+          <input type="text" id="clave-encriptar" placeholder="Clave" />
+          <button class="encriptar-btn">
+            <i class="fa-solid fa-lock"></i>
+            Encriptar
+          </button>
+        </span>
+        <span class="resultado-encriptado"></span>
+      </div>
+      <div class="cuadroCripto">
+        <span class="header">Desencriptar un texto mediante el método AES</span>
+        <span class="contenido">
+          <input
+            type="text"
+            id="texto-desencriptar"
+            placeholder="Texto cifrado" />
+          <input type="text" id="clave-desencriptar" placeholder="Clave" />
+          <button class="desencriptar-btn">
+            <i class="fa-solid fa-key"></i>
+            Desencriptar
+          </button>
+        </span>
+        <span class="resultado-desencriptado"></span>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ef2430d1e3.js"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

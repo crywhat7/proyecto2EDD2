@@ -1,0 +1,47 @@
+.r-salt {
+  overflow-x: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start !important;
+  padding-left: 0.7rem;
+}
+
+.r-salt .salt-pepper {
+  width: 90%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.copy {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.copy:hover {
+  color: rgb(3, 3, 88);
+}
+.salt-pepper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.salt-pepper::-webkit-scrollbar-track {
+  background: rgb(245, 234, 214);
+}
+
+.salt-pepper::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid rgb(201, 201, 201);
+}
+
+.r-pepper-nice {
+  background-color: rgb(35, 131, 16) !important;
+  color: white !important;
+  /* add a glow */
+  box-shadow: 0 0 30px 5px rgba(35, 131, 16, 0.692);
+
+}
+.r-pepper-wrong {
+  background-color: rgb(131, 16, 16) !important;
+  color: white !important;
+  box-shadow: 0 0 30px 5px rgba(131, 16, 16, 0.692);
+}
