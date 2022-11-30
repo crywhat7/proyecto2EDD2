@@ -1,0 +1,61 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="./../CriptoAES/style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap"
+      rel="stylesheet" />
+    <title>Proyecto #2 - EDD2</title>
+  </head>
+  <body>
+    <span class="btn-change-mode">
+      <a href="../CriptoAES/index.html">
+        <i class="fa-solid fa-pizza-slice"></i>
+      </a>
+    </span>
+    <div class="encriptamiento">
+      <div class="cuadroCripto">
+        <span class="header">Comprimir mediante el método LWZ</span>
+        <span class="contenido">
+          <input
+            type="text"
+            id="texto-comprimir"
+            placeholder="Ingrese el texto a comprimir" />
+          <button class="comprimir-btn">
+            <i class="fa-solid fa-file-zipper"></i>
+            Comprimir
+          </button>
+        </span>
+        <span class="resultado-compreso"></span>
+      </div>
+      <div class="cuadroCripto">
+        <span class="header">Descomprimir mediante el método LWZ</span>
+        <span class="contenido">
+          <!-- <input
+            type="text"
+            id="texto-original"
+            placeholder="Ingrese el texto original" /> -->
+          <input
+            type="text"
+            id="texto-descomprimir"
+            placeholder="Ingrese el texto a descomprimir" />
+          <button class="descomprimir-btn">
+            <i class="fa-solid fa-fire-extinguisher"></i>
+            Descomprimir
+          </button>
+        </span>
+        <span class="resultado-descompreso"></span>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ef2430d1e3.js"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -39,6 +39,7 @@ function desencriptar() {
   xhr.onload = () => {
     if (xhr.status === 200) {
       const response = xhr.response;
+      console.log(response);
       resultado.textContent = response.desencriptado;
     } else {
       console.log(`Error ${xhr.status}: ${xhr.statusText}`);

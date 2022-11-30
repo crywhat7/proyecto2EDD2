@@ -1,13 +1,25 @@
+// SERVER
 const express = require('express');
 const cors = require('cors');
+
+// CRYPTOJS AND CRYPTO
 const CryptoJS = require('crypto-js');
-const colores = require('colors');
 const crypto = require('crypto');
 
+// EXTRA
+const colores = require('colors');
+
+// ARCHIVES
 const fs = require('fs');
-const zlib = require('zlib');
+const archive = require('archiver')('zip');
 const formidable = require('formidable');
 
+// COMPRIMIR
+const huffman = require('huffman-javascript');
+let ultimoTextoComprimido = '';
+const lzString = require('lz-string');
+
+// CREAR EL SERVER
 const app = express();
 const port = 3000;
 
@@ -31,12 +43,16 @@ app.get('/encriptar', (req, res) => {
 
 app.get('/desencriptar', (req, res) => {
   try {
-    const { texto, clave } = req.query;
-    const bytes = CryptoJS.AES.decrypt(texto, clave);
-    const desencriptado = bytes.toString(CryptoJS.enc.Utf8);
-    res.json({ desencriptado });
+    let { texto, clave } = req.query;
+    if (texto && clave) {
+      const bytes = CryptoJS.AES.decrypt(texto.trim(), clave);
+      const desencriptado = bytes.toString(CryptoJS.enc.Utf8);
+      res.json({ desencriptado });
+    } else {
+      res.json({ desencriptado: 'Debe escribir algo en los campos XD' });
+    }
   } catch (error) {
-    res.json({ desencriptado: 'Error al encriptar' });
+    res.json({ desencriptado: 'Error al desencriptar' });
     console.log(error);
   }
 });
@@ -68,17 +84,59 @@ app.get('/desencriptar/salt', (req, res) => {
   }
 });
 
-app.post('/comprimir', (req, res) => {
+app.get('/comprimir/huffman', (req, res) => {
   try {
-    const formulario = new formidable.IncomingForm();
-    formulario.uploadDir = __dirname + '/archivos';
+    const { texto } = req.query;
+    ultimoTextoComprimido = texto;
+    const codes = huffman.getCodesFromText(texto);
+    const comprimido = huffman.encode(texto, codes);
+    return res.json({ comprimido: comprimido });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
-    formulario.parse(req, (err, fields, archivo) => {
-      const escritura = fs.createWriteStream(__dirname + '/archivos/' + archivo.upload.name + '.gz');
-    });
+app.get('/descomprimir/huffman', (req, res) => {
+  try {
+    const { texto } = req.query;
+    const codes = huffman.getCodesFromText(ultimoTextoComprimido);
+    const descompreso = huffman.decode(texto.split(','), codes);
+
+    return res.json({ descompreso });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get('/comprimir/lzw', (req, res) => {
+  try {
+    const { texto } = req.query;
+    const comprimido = lzString.compress(texto);
+    return res.json({ comprimido });
+  } catch (error) {}
+});
+
+app.get('/descomprimir/lzw', (req, res) => {
+  try {
+    const { texto } = req.query;
+    console.log(texto);
+    const descompreso = lzString.decompress(texto);
+    return res.json({ descompreso });
   } catch (error) {}
 });
 
 app.listen(port, () => {
   console.log('Server is running on port 3000'.bgMagenta);
 });
+
+const xd = (texto) => {
+  test = {
+    comprimido: lzString.compressToBase64(texto),
+    descomprimido: lzString.decompressFromBase64(
+      lzString.compressToBase64(texto)
+    ),
+  };
+  console.log(test);
+};
+
+xd('Abner');
