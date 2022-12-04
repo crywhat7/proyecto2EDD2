@@ -126,17 +126,5 @@ app.get('/descomprimir/lzw', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is running on port 3000'.bgMagenta);
+  console.log(`El servidor está corriendo en el puerto: ${port}`.bgMagenta);
 });
-
-const xd = (texto) => {
-  test = {
-    comprimido: lzString.compressToBase64(texto),
-    descomprimido: lzString.decompressFromBase64(
-      lzString.compressToBase64(texto)
-    ),
-  };
-  console.log(test);
-};
-
-xd('Abner');
